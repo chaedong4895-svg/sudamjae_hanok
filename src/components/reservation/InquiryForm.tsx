@@ -10,13 +10,6 @@ export interface InquirySummary {
   optionLabels: string[];
 }
 
-function generateRefId(): string {
-  const now = new Date();
-  const y = now.getFullYear().toString().slice(2);
-  const stamp = now.getTime().toString().slice(-6);
-  return `SDJ-${y}${stamp}`;
-}
-
 export function InquiryForm({
   content,
   locale,
@@ -36,7 +29,9 @@ export function InquiryForm({
   const [manualDates, setManualDates] = useState("");
   const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(false);
+  const [company, setCompany] = useState(""); // honeypot; left empty by real visitors
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [sending, setSending] = useState(false);
   const [refId, setRefId] = useState<string | null>(null);
 
   const effectiveDatesLabel = summary.datesLabel ?? manualDates;
@@ -52,31 +47,42 @@ export function InquiryForm({
     return Object.keys(next).length === 0;
   }
 
-  function buildMailBody(id: string): string {
-    const lines = [
-      `[${id}]`,
-      `${content.nameLabel}: ${name}`,
-      `${content.phoneLabel}: ${phone}`,
-      email ? `${content.emailLabel}: ${email}` : null,
-      `${content.datesLabel}: ${effectiveDatesLabel}`,
-      `${content.guestsLabel}: ${summary.guestsLabel}`,
-      `${content.purposeLabel}: ${summary.purposeLabel}`,
-      summary.optionLabels.length ? `${content.optionsLabel}: ${summary.optionLabels.join(", ")}` : null,
-      message ? `${content.messageLabel}: ${message}` : null,
-    ].filter(Boolean);
-    return lines.join("\n");
-  }
-
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!validate()) return;
-    const id = generateRefId();
-    const subject = encodeURIComponent(
-      locale === "ko" ? `[수담재 문의] ${name}님` : `[Sudamjae Inquiry] ${name}`
-    );
-    const body = encodeURIComponent(buildMailBody(id));
-    setRefId(id);
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+
+    setSending(true);
+    setErrors((prev) => ({ ...prev, server: "" }));
+
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone: phone.trim(),
+          email: email.trim(),
+          datesLabel: effectiveDatesLabel,
+          guestsLabel: summary.guestsLabel,
+          purposeLabel: summary.purposeLabel,
+          optionLabels: summary.optionLabels,
+          message: message.trim(),
+          consent,
+          locale,
+          company,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        setErrors((prev) => ({ ...prev, server: content.errors.server }));
+        return;
+      }
+      setRefId(data.refId);
+    } catch {
+      setErrors((prev) => ({ ...prev, server: content.errors.server }));
+    } finally {
+      setSending(false);
+    }
   }
 
   if (refId) {
@@ -86,18 +92,6 @@ export function InquiryForm({
         <p className="font-sans text-sm text-ink/80 leading-relaxed">
           {content.successBodyTemplate.replace("{ref}", refId)}
         </p>
-        <p className="font-sans text-xs text-brown">{content.mailFallback}</p>
-        <a href={`mailto:${contactEmail}`} className="font-sans text-sm text-primary underline">
-          {contactEmail}
-        </a>
-        {contactPhone && (
-          <>
-            <p className="font-sans text-xs text-brown pt-1">{content.phoneFallback}</p>
-            <a href={`tel:${contactPhone.replace(/[^0-9+]/g, "")}`} className="font-sans text-sm text-primary underline">
-              {contactPhone}
-            </a>
-          </>
-        )}
       </div>
     );
   }
@@ -204,6 +198,20 @@ export function InquiryForm({
         />
       </div>
 
+      {/* Honeypot field: hidden from real visitors via CSS, bots tend to fill every input they find. */}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+        />
+      </div>
+
       <div>
         <label className="flex items-start gap-2 font-sans text-sm text-ink/80">
           <input
@@ -220,11 +228,28 @@ export function InquiryForm({
         {errors.consent && <p className="text-xs text-red-700 mt-1">{errors.consent}</p>}
       </div>
 
+      {errors.server && (
+        <div className="p-4 bg-red-50 border border-red-200 space-y-2">
+          <p className="text-sm text-red-800">{errors.server}</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            <a href={`mailto:${contactEmail}`} className="text-primary underline">
+              {contactEmail}
+            </a>
+            {contactPhone && (
+              <a href={`tel:${contactPhone.replace(/[^0-9+]/g, "")}`} className="text-primary underline">
+                {contactPhone}
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+
       <button
         type="submit"
-        className="w-full py-4 bg-primary text-background font-sans text-sm font-semibold uppercase tracking-widest hover:bg-brown transition-colors"
+        disabled={sending}
+        className="w-full py-4 bg-primary text-background font-sans text-sm font-semibold uppercase tracking-widest hover:bg-brown transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {content.submitLabel}
+        {sending ? content.sendingLabel : content.submitLabel}
       </button>
     </form>
   );

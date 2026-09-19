@@ -410,6 +410,7 @@ export const en: SiteContent = {
     consentDetail:
       "Collected: name, phone, email. Purpose: responding to inquiries and confirming reservations. Retention: 1 year after the inquiry is resolved.",
     submitLabel: "Send Inquiry",
+    sendingLabel: "Sending…",
     requiredMark: "*",
     errors: {
       name: "Please enter a name of at least 2 characters.",
@@ -417,12 +418,11 @@ export const en: SiteContent = {
       email: "Please check the email format.",
       dates: "Please select or enter your preferred dates.",
       consent: "Please agree to the collection and use of personal information.",
+      server: "We couldn't send your inquiry. Please try again shortly, or contact us directly using the details below.",
     },
     successTitle: "Your inquiry has been received",
     successBodyTemplate:
-      "Reference No. {ref} · When your email app opens, please review and send the message. We will reply as soon as possible.",
-    mailFallback: "If your email app did not open automatically, please email us directly at the address below.",
-    phoneFallback: "For urgent requests, you may also call us.",
+      "Reference No. {ref} · Your inquiry has been received. We will reply as soon as possible.",
   },
   cancellation: {
     title: "Cancellation & Refund Policy",

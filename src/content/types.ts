@@ -210,6 +210,7 @@ export interface InquiryFormContent {
   consentLabel: string;
   consentDetail: string;
   submitLabel: string;
+  sendingLabel: string;
   requiredMark: string;
   errors: {
     name: string;
@@ -217,12 +218,11 @@ export interface InquiryFormContent {
     email: string;
     dates: string;
     consent: string;
+    server: string;
   };
   successTitle: string;
   /** {ref} 토큰을 접수 번호로 치환해서 사용한다. (서버→클라이언트 컴포넌트 경계로 함수를 전달할 수 없어 문자열 템플릿으로 관리) */
   successBodyTemplate: string;
-  mailFallback: string;
-  phoneFallback: string;
 }
 
 export interface RefundRow {

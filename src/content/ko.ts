@@ -407,6 +407,7 @@ export const ko: SiteContent = {
     consentDetail:
       "수집 항목: 이름, 휴대전화, 이메일. 이용 목적: 문의 응대 및 예약 확인. 보관 기간: 문의 처리 완료 후 1년.",
     submitLabel: "문의 보내기",
+    sendingLabel: "전송 중…",
     requiredMark: "*",
     errors: {
       name: "이름을 2자 이상 입력해 주세요.",
@@ -414,12 +415,10 @@ export const ko: SiteContent = {
       email: "이메일 형식을 확인해 주세요.",
       dates: "희망 일정을 선택하거나 입력해 주세요.",
       consent: "개인정보 수집 및 이용에 동의해 주세요.",
+      server: "문의 전송에 실패했습니다. 잠시 후 다시 시도하시거나 아래 연락처로 직접 연락해 주세요.",
     },
     successTitle: "문의가 접수되었습니다",
-    successBodyTemplate:
-      "접수 번호 {ref} · 이메일 앱이 열리면 문의 내용을 확인하고 전송을 완료해 주세요. 확인 후 순차적으로 회신드립니다.",
-    mailFallback: "이메일 앱이 자동으로 열리지 않으면 아래 이메일로 직접 보내주세요.",
-    phoneFallback: "급하신 경우 전화로도 문의하실 수 있습니다.",
+    successBodyTemplate: "접수 번호 {ref} · 문의가 정상적으로 접수되었습니다. 확인 후 순차적으로 회신드립니다.",
   },
   cancellation: {
     title: "취소 및 환불 정책",
