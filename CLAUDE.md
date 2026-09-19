@@ -46,7 +46,7 @@ Each page is a thin wrapper that calls `getContent("ko" | "en")` from `src/conte
 
 ## Known gaps vs. the PRD (by design, deferred to a later phase)
 
-Confirmed with the user before building: admin login/dashboard, automated email sending, a real database, and Naver Maps JS API integration were all deferred — see the "일정 관리 방식" and "출시 전 확정 필요사항" sections of `수담재_웹사이트_PRD.md` for the full list. The location section links out to `map.naver.com` search/directions URLs instead of an embedded map, specifically to avoid needing an NCP API key for this phase.
+Confirmed with the user before building: admin login/dashboard, automated email sending, a real database, and Naver Maps JS API integration were all deferred — see the "일정 관리 방식" and "출시 전 확정 필요사항" sections of `수담재_웹사이트_PRD.md` for the full list. The location section embeds a Naver map (`src/components/NaverMap.tsx`, Maps JS SDK v3 loaded client-side, pin at the fixed `PROPERTY_LAT`/`PROPERTY_LNG` in `LocationSection.tsx` — no Geocoding API needed) when `NEXT_PUBLIC_NAVER_MAP_CLIENT_ID` is set (NCP Application → Maps → Web Dynamic Map; register every domain the site is served from, incl. `http://localhost:3000`, under Web service URL). Without the key, or if SDK auth fails, it falls back to a keyless Google Maps iframe. `map.naver.com` search/directions buttons sit below the map either way. The var is inlined at build time, so redeploy after changing it on Vercel.
 
 ## Operating policy (confirmed 2026-09-19, superseding the PRD's placeholders)
 

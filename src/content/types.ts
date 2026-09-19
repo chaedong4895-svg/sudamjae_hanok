@@ -264,6 +264,7 @@ export interface LocationContent {
   copyAddressLabel: string;
   copiedLabel: string;
   callLabel: string;
+  mapTitle: string;
   mapFailureNote: string;
 }
 

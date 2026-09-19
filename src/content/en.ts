@@ -473,7 +473,8 @@ export const en: SiteContent = {
     copyAddressLabel: "Copy address",
     copiedLabel: "Copied",
     callLabel: "Call",
-    mapFailureNote: "If the map does not load, please use the address and Naver Map link above.",
+    mapTitle: "Map showing the location of Sudamjae",
+    mapFailureNote: "If the map does not load, please use the address and Naver Map link below.",
   },
   reviews: {
     eyebrow: "Guest Impressions",

@@ -469,6 +469,7 @@ export const ko: SiteContent = {
     copyAddressLabel: "주소 복사",
     copiedLabel: "복사되었습니다",
     callLabel: "전화 걸기",
+    mapTitle: "수담재 위치 지도",
     mapFailureNote: "지도가 표시되지 않는 경우 위 주소와 네이버 지도 링크를 이용해 주세요.",
   },
   reviews: {

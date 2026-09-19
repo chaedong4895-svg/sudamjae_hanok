@@ -1,10 +1,23 @@
-import type { LocationContent } from "@/content/types";
+import type { Locale, LocationContent } from "@/content/types";
 import { SectionHeading, Section } from "../ui";
 import { CopyButton } from "../CopyButton";
+import { NaverMap } from "../NaverMap";
 
 const KO_ROAD_ADDRESS = "경기 여주시 세종대왕면 능서로 298-25";
+// Fixed pin for 왕대리 692-66 (지번 주소), copied from Naver Map; avoids needing the Geocoding API.
+const PROPERTY_LAT = 37.320406;
+const PROPERTY_LNG = 127.589559;
 
-export function LocationSection({ location }: { location: LocationContent }) {
+export function LocationSection({
+  location,
+  locale,
+}: {
+  location: LocationContent;
+  locale: Locale;
+}) {
+  // Keyless Google Maps embed, used by NaverMap as a fallback when no Naver client id is configured
+  // (or it fails auth).
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${PROPERTY_LAT},${PROPERTY_LNG}&hl=${locale}&z=16&output=embed`;
   const naverMapUrl = `https://map.naver.com/p/search/${encodeURIComponent(KO_ROAD_ADDRESS)}`;
   const naverDirectionsUrl = `https://map.naver.com/p/directions/-/-/${encodeURIComponent(
     KO_ROAD_ADDRESS
@@ -72,9 +85,18 @@ export function LocationSection({ location }: { location: LocationContent }) {
         </div>
 
         <div className="lg:col-span-7">
-          <div className="relative w-full aspect-[4/3] bg-surface flex flex-col items-center justify-center gap-4 p-8 text-center border border-border">
-            <p className="font-sans text-sm text-ink/70">{location.mapFailureNote}</p>
-            <div className="flex flex-wrap gap-3 justify-center">
+          <div className="relative w-full aspect-[4/3] bg-surface border border-border">
+            <NaverMap
+              clientId={process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}
+              lat={PROPERTY_LAT}
+              lng={PROPERTY_LNG}
+              title={location.mapTitle}
+              fallbackSrc={mapEmbedUrl}
+            />
+          </div>
+          <div className="mt-4 space-y-3">
+            <p className="font-sans text-xs text-ink/60">{location.mapFailureNote}</p>
+            <div className="flex flex-wrap gap-3">
               <a
                 href={naverMapUrl}
                 target="_blank"

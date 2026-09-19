@@ -30,7 +30,7 @@ export function HomePage({ content }: { content: SiteContent }) {
         <Gallery gallery={content.gallery} />
         <Pricing pricing={content.pricing} stayInfo={content.stayInfo} reservationHref={reservationHref} />
         <ReservationPreview content={content.reservationPreview} reservationHref={reservationHref} />
-        <LocationSection location={content.location} />
+        <LocationSection location={content.location} locale={content.locale} />
         <Reviews reviews={content.reviews} />
       </main>
       <Footer footer={content.footer} location={content.location} />
