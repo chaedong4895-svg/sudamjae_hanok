@@ -131,7 +131,7 @@ export const ko: SiteContent = {
         description:
           "오래된 소나무와 배롱나무가 둘러싼 마당 한편에 날씨에 구애받지 않는 글라스 바비큐 파빌리온이 자리합니다.",
         bullets: ["프라이빗 정원과 석상", "글라스 바비큐 파빌리온 (별도 이용료)"],
-        image: "/images/exterior/pavilion.jpg",
+        image: "/images/exterior/pavilion-garden.jpg",
         imageCaption: "정원 옆 글라스 바비큐 파빌리온",
       },
     ],

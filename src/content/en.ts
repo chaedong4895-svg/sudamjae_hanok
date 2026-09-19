@@ -132,7 +132,7 @@ export const en: SiteContent = {
         description:
           "Old pine and crape myrtle trees surround the courtyard, beside an all-weather glass BBQ pavilion.",
         bullets: ["Private garden with stone guardian statues", "Glass BBQ pavilion (additional fee)"],
-        image: "/images/exterior/pavilion.jpg",
+        image: "/images/exterior/pavilion-garden.jpg",
         imageCaption: "The glass BBQ pavilion beside the garden",
       },
     ],
