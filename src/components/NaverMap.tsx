@@ -24,9 +24,6 @@ const SDK_TIMEOUT_MS = 10000;
 
 function loadSdk(clientId: string): Promise<NaverMapsApi> {
   return new Promise((resolve, reject) => {
-    // The SDK calls this global when the client id / registered web service URL is rejected.
-    window.navermap_authFailure = () => reject(new Error("naver maps auth failure"));
-
     let script = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement("script");
@@ -75,6 +72,13 @@ export function NaverMap({
     if (!clientId || !containerRef.current) return;
     let cancelled = false;
     const container = containerRef.current;
+
+    // The SDK calls this global when the client id / registered web service URL is rejected. That
+    // happens after the map has already been created, so it must flip state directly rather than
+    // reject the load promise (which has long since resolved).
+    window.navermap_authFailure = () => {
+      if (!cancelled) setFailed(true);
+    };
 
     loadSdk(clientId)
       .then((maps) => {
