@@ -14,7 +14,9 @@ export function Reviews({ reviews }: { reviews: ReviewsContent }) {
         className={
           reviews.items.length === 1
             ? "max-w-2xl mx-auto mt-12"
-            : "grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
+            : reviews.items.length === 2
+              ? "grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto"
+              : "grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
         }
       >
         {reviews.items.map((item) => (

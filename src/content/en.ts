@@ -489,6 +489,14 @@ export const en: SiteContent = {
         name: "Tokunaga",
         meta: "Seoul, South Korea",
       },
+      {
+        quote:
+          "고즈넉하고 품이 넓은 한옥펜션입니다. 다도와 함께 넉넉한 시간을 즐길 수 있는 별채와 잘 정돈된 넓은 잔디 마당이 매력적인 여주 수담재입니다. 한적하고 여유로운 분위기 속에서 조용히 힐링하기에 최적인 감성 펜션입니다. 꼭 방문해 보세요!",
+        translation:
+          "A serene and spacious hanok stay. Sudamjae in Yeoju charms with a separate annex where you can enjoy unhurried time over tea ceremony, and a wide, well-kept lawn courtyard. Set in a quiet, relaxed atmosphere, it is a heartfelt retreat ideal for healing in peace. Do pay it a visit!",
+        name: "Lee **",
+        meta: "Seoul, South Korea",
+      },
     ],
   },
   footer: {
