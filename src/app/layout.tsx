@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Serif_KR, Noto_Sans_KR } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { HtmlLangSetter } from "@/components/HtmlLangSetter";
 
@@ -34,6 +35,18 @@ export default function RootLayout({
       <body className="font-sans bg-background text-ink antialiased">
         <HtmlLangSetter />
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-RP4GLXRT3F"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RP4GLXRT3F');
+          `}
+        </Script>
       </body>
     </html>
   );
