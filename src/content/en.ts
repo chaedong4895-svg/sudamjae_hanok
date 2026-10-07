@@ -483,21 +483,11 @@ export const en: SiteContent = {
     items: [
       {
         quote:
-          "Stepping away from the noise of the city and opening the hanji doors to the scent of pine and the sound of rain on the eaves is something I will never forget. A restful memory for our whole family.",
-        name: "Seo-yeong Kim",
+          "韓国の伝統家屋を体験できる素晴らしい所でした。寝室や浴室もとてもきれいで一泊二日では物足りなかったです。日々のストレスを忘れて自然に囲まれながら癒しのひとときを過ごせました。",
+        translation:
+          "It was a wonderful place to experience a traditional Korean house. The bedroom and bathroom were spotlessly clean, and one night felt too short. Surrounded by nature, I forgot the stress of daily life and enjoyed a truly healing time.",
+        name: "Tokunaga",
         meta: "Seoul, South Korea",
-      },
-      {
-        quote:
-          "Our whole family stayed to celebrate my parents' 60th anniversary. A place where traditional dignity meets modern comfort — the morning tea we shared in the Dasil was especially memorable.",
-        name: "Jin-woo Park",
-        meta: "Seongnam, South Korea",
-      },
-      {
-        quote:
-          "An extraordinary architectural experience. As an architect, seeing the structural elegance of Hanok timber joinery firsthand while drinking tea was deeply moving.",
-        name: "Julian V.",
-        meta: "Architect, Switzerland",
       },
     ],
   },

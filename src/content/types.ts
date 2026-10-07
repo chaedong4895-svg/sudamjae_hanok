@@ -270,6 +270,8 @@ export interface LocationContent {
 
 export interface ReviewItem {
   quote: string;
+  /** Translation of `quote` when it is shown in its original language. */
+  translation?: string;
   name: string;
   meta: string;
 }

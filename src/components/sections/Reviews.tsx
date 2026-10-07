@@ -10,10 +10,21 @@ export function Reviews({ reviews }: { reviews: ReviewsContent }) {
         subtitle={reviews.subtitle}
         align="center"
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+      <div
+        className={
+          reviews.items.length === 1
+            ? "max-w-2xl mx-auto mt-12"
+            : "grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
+        }
+      >
         {reviews.items.map((item) => (
           <div key={item.name} className="p-8 bg-white flex flex-col justify-between space-y-6">
-            <p className="font-serif italic text-ink/80 leading-relaxed">&ldquo;{item.quote}&rdquo;</p>
+            <div className="space-y-4">
+              <p className="font-serif italic text-ink/80 leading-relaxed">&ldquo;{item.quote}&rdquo;</p>
+              {item.translation && (
+                <p className="font-sans text-sm text-ink/60 leading-relaxed">{item.translation}</p>
+              )}
+            </div>
             <div className="pt-4 border-t border-border/60">
               <p className="font-sans text-sm font-medium text-primary">{item.name}</p>
               <span className="font-sans text-xs text-brown">{item.meta}</span>

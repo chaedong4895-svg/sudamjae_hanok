@@ -479,21 +479,11 @@ export const ko: SiteContent = {
     items: [
       {
         quote:
-          "도시의 소음에서 벗어나 창호지 문을 열었을 때 퍼지던 은은한 솔향과 처마 끝 빗소리를 잊을 수 없습니다. 가족 모두에게 오래 기억될 휴식이었습니다.",
-        name: "김서영 님",
+          "韓国の伝統家屋を体験できる素晴らしい所でした。寝室や浴室もとてもきれいで一泊二日では物足りなかったです。日々のストレスを忘れて自然に囲まれながら癒しのひとときを過ごせました。",
+        translation:
+          "한국의 전통 가옥을 체험할 수 있는 멋진 곳이었습니다. 침실과 욕실도 매우 깨끗해서 1박 2일로는 아쉬웠습니다. 일상의 스트레스를 잊고 자연에 둘러싸여 힐링의 시간을 보낼 수 있었습니다.",
+        name: "도쿠나가 님",
         meta: "서울 거주",
-      },
-      {
-        quote:
-          "부모님의 환갑을 기념하여 온 가족이 머물렀습니다. 전통의 품격과 현대적인 안락함이 조화를 이룬 곳. 다실에서 부모님과 함께 마신 아침 차 한 잔이 무척 각별했습니다.",
-        name: "박진우 님",
-        meta: "경기 성남 거주",
-      },
-      {
-        quote:
-          "An extraordinary architectural experience. As an architect, seeing the structural elegance of Hanok timber joinery firsthand while drinking tea was deeply moving.",
-        name: "Julian V.",
-        meta: "Architect, Switzerland",
       },
     ],
   },
