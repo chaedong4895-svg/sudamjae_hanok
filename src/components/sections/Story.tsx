@@ -8,7 +8,7 @@ export function Story({ story, spaceHref }: { story: StoryContent; spaceHref: st
         <div className="lg:col-span-6">
           <div className="p-2 lg:p-3 bg-surface shadow-sm">
             <AspectImage
-              src="/images/exterior/exterior-08.jpg"
+              src="/images/gallery/21-garden-path.jpg"
               alt={story.imageCaption}
               ratio="4/3"
             />

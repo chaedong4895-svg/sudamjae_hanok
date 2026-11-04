@@ -5,8 +5,14 @@ import { useCallback, useEffect, useState } from "react";
 import type { GalleryContent } from "@/content/types";
 import { SectionHeading, Section } from "../ui";
 
+/** How many photos show before the "show more" button. */
+const INITIAL_VISIBLE = 12;
+
 export function Gallery({ gallery }: { gallery: GalleryContent }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
+  const hasMore = gallery.items.length > INITIAL_VISIBLE;
+  const visibleItems = expanded ? gallery.items : gallery.items.slice(0, INITIAL_VISIBLE);
 
   const close = useCallback(() => setOpenIndex(null), []);
   const showPrev = useCallback(
@@ -43,7 +49,7 @@ export function Gallery({ gallery }: { gallery: GalleryContent }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {gallery.items.map((item, i) => (
+        {visibleItems.map((item, i) => (
           <button
             key={item.src}
             type="button"
@@ -64,6 +70,22 @@ export function Gallery({ gallery }: { gallery: GalleryContent }) {
           </button>
         ))}
       </div>
+
+      {hasMore && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => {
+              if (expanded) document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" });
+              setExpanded((v) => !v);
+            }}
+            aria-expanded={expanded}
+            className="font-sans text-sm tracking-wider border border-primary text-primary px-8 py-3 hover:bg-primary hover:text-background transition-colors"
+          >
+            {expanded ? gallery.showLess : `${gallery.showMore} (${gallery.items.length - INITIAL_VISIBLE})`}
+          </button>
+        </div>
+      )}
 
       {active && (
         <div

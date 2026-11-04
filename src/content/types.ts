@@ -106,6 +106,9 @@ export interface GalleryContent {
   eyebrow: string;
   title: string;
   hint: string;
+  /** Labels for the button that reveals/hides photos beyond the first few. */
+  showMore: string;
+  showLess: string;
   items: GalleryItem[];
 }
 

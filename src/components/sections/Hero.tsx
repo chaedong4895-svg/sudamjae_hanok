@@ -14,8 +14,8 @@ export function Hero({
     <section className="relative w-full min-h-[92vh] flex items-end overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/hero-main.jpg"
-          alt="수담재 외경 전경"
+          src="/images/hero/02-sunset-glass-pavilion.jpg"
+          alt="노을 아래 수담재 한옥과 유리 다실"
           fill
           priority
           sizes="100vw"
