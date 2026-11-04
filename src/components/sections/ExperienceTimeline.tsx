@@ -17,7 +17,7 @@ export function ExperienceTimeline({ experience }: { experience: ExperienceConte
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-5">
           <div className="p-2 bg-background/10 shadow-2xl">
-            <AspectImage src="/images/interior/main-hall.jpg" alt={experience.imageCaption} ratio="4/5" />
+            <AspectImage src="/images/gallery/39-pavilion-interior.jpg" alt={experience.imageCaption} ratio="4/5" />
           </div>
           <div className="mt-4 p-4 bg-background/10 space-y-1">
             <p className="font-serif text-background">{experience.imageCaption}</p>

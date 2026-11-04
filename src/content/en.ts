@@ -141,9 +141,9 @@ export const en: SiteContent = {
     eyebrow: "Chronicles of Serenity",
     title: "A Day at Sudamjae",
     subtitle: "Time flows gently, following the arc of sun and moon",
-    imageCaption: "The heart of Sudamjae: the main hall",
+    imageCaption: "The sunlit glass pavilion",
     imageDescription:
-      "A contemplative main hall where soaring rafters meet the warmth of natural timber.",
+      "Sudamjae's glass pavilion, where tea and meals come with a garden view through floor-to-ceiling windows.",
     timeline: [
       {
         time: "7:30 AM",

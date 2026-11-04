@@ -140,9 +140,9 @@ export const ko: SiteContent = {
     eyebrow: "Chronicles of Serenity",
     title: "한옥에서 보내는 하루",
     subtitle: "해와 달의 궤적을 따라 유연하게 흐르는 시간",
-    imageCaption: "수담재의 중심, 대청과 공용공간",
+    imageCaption: "햇살 가득한 유리 파빌리온",
     imageDescription:
-      "웅장한 서까래와 천연 목재의 온기가 어우러지는 사유의 메인 홀입니다.",
+      "통창 너머 정원을 바라보며 차와 식사를 즐길 수 있는 수담재의 유리 파빌리온입니다.",
     timeline: [
       {
         time: "07:30",
