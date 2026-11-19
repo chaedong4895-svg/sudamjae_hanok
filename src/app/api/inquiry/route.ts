@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { sendInquiryAlimtalk } from "@/lib/alimtalk";
 
 export const runtime = "nodejs";
 
@@ -106,6 +107,10 @@ export async function POST(request: Request) {
       console.error("Resend send error:", error);
       return NextResponse.json({ ok: false, error: "send_failed" }, { status: 502 });
     }
+
+    // Confirmation to the visitor's KakaoTalk. Awaited so the serverless function isn't frozen
+    // mid-request, but it never throws and never fails the inquiry (see alimtalk.ts).
+    await sendInquiryAlimtalk({ phone, name, refId, datesLabel });
 
     return NextResponse.json({ ok: true, refId });
   } catch (err) {

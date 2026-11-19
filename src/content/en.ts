@@ -441,7 +441,7 @@ export const en: SiteContent = {
     messagePlaceholder: "Feel free to share any questions. (up to 1,000 characters)",
     consentLabel: "I agree to the collection and use of my personal information.",
     consentDetail:
-      "Collected: name, phone, email. Purpose: responding to inquiries and confirming reservations. Retention: 1 year after the inquiry is resolved.",
+      "Collected: name, phone, email. Purpose: responding to inquiries and confirming reservations, and sending a confirmation by KakaoTalk or SMS to Korean mobile numbers. Retention: 1 year after the inquiry is resolved.",
     submitLabel: "Send Inquiry",
     sendingLabel: "Sending…",
     requiredMark: "*",
@@ -582,7 +582,10 @@ export const en: SiteContent = {
       },
       {
         heading: "2. Purpose of Collection and Use",
-        body: ["Personal information is used to respond to inquiries and confirm reservation details."],
+        body: [
+          "Personal information is used to respond to inquiries and confirm reservation details.",
+          "When an inquiry is received, a confirmation is sent to the phone number you entered by KakaoTalk or SMS (Korean mobile numbers only).",
+        ],
       },
       {
         heading: "3. Retention Period",
@@ -595,7 +598,13 @@ export const en: SiteContent = {
         body: ["The Operator does not share your personal information with external parties as a rule."],
       },
       {
-        heading: "5. Contact",
+        heading: "5. Outsourced Processing",
+        body: [
+          "To send the KakaoTalk or SMS confirmation, your phone number and part of your inquiry (name, reference number, preferred dates) are processed by a messaging service provider (SOLAPI) on our behalf.",
+        ],
+      },
+      {
+        heading: "6. Contact",
         body: ["For privacy-related inquiries, please contact sudamjae_67@naver.com."],
       },
     ],
