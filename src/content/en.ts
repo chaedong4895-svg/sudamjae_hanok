@@ -544,7 +544,7 @@ export const en: SiteContent = {
     ],
     businessInfo: [
       { label: "Business Name", value: "Sudamjae (수담재)" },
-      { label: "Representative", value: "채정란 and 1 other" },
+      { label: "Representative", value: "Chai Jeongran and 1 other" },
       { label: "Business Registration No.", value: "391-16-02375" },
       {
         label: "Business Address",
