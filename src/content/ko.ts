@@ -490,7 +490,7 @@ export const ko: SiteContent = {
     lotAddressLabel: "지번 주소",
     lotAddress: "경기 여주시 세종대왕면 왕대리 692-66",
     phoneLabel: "전화",
-    phone: "",
+    phone: "010-9718-2556",
     emailLabel: "이메일",
     email: "sudamjae_67@naver.com",
     directionsTitle: "찾아오시는 방법",
@@ -535,6 +535,13 @@ export const ko: SiteContent = {
     legalLinks: [
       { label: "이용약관", href: "/terms" },
       { label: "개인정보처리방침", href: "/privacy" },
+    ],
+    businessInfo: [
+      { label: "상호명", value: "수담재" },
+      { label: "대표자", value: "채정란 외 1명" },
+      { label: "사업자등록번호", value: "391-16-02375" },
+      { label: "사업장 소재지", value: "경기도 여주시 세종대왕면 능서로 298-25" },
+      { label: "문의", value: "010-9718-2556" },
     ],
     copyright: "© 2026 SUDAMJAE YEOJU. All rights reserved.",
   },

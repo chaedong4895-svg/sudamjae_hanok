@@ -293,6 +293,8 @@ export interface FooterContent {
   connectTitle: string;
   connectLinks: string[];
   legalLinks: { label: string; href: string }[];
+  /** 사업자 정보 (전자상거래법 표시 사항) — rendered as a label/value row above the copyright bar. */
+  businessInfo: { label: string; value: string }[];
   copyright: string;
 }
 

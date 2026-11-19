@@ -38,6 +38,14 @@ export function Footer({
             </div>
           </div>
         </div>
+        <dl className="pt-6 pb-6 border-t border-border/60 flex flex-wrap gap-x-5 gap-y-1.5 font-sans text-xs text-brown leading-relaxed">
+          {footer.businessInfo.map((item) => (
+            <div key={item.label} className="flex gap-1.5">
+              <dt className="text-ink/60">{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
         <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row justify-between items-center gap-3 font-sans text-xs text-brown">
           <div className="flex flex-wrap items-center gap-6">
             {footer.legalLinks.map((link) => (

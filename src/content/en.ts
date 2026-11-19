@@ -494,7 +494,7 @@ export const en: SiteContent = {
     lotAddressLabel: "Lot number address",
     lotAddress: "692-66, Wangdae-ri, Sejongdaewang-myeon, Yeoju-si, Gyeonggi-do, Republic of Korea",
     phoneLabel: "Phone",
-    phone: "",
+    phone: "+82 10-9718-2556",
     emailLabel: "Email",
     email: "sudamjae_67@naver.com",
     directionsTitle: "Getting Here",
@@ -541,6 +541,16 @@ export const en: SiteContent = {
     legalLinks: [
       { label: "Terms and Conditions", href: "/en/terms" },
       { label: "Privacy Policy", href: "/en/privacy" },
+    ],
+    businessInfo: [
+      { label: "Business Name", value: "Sudamjae (수담재)" },
+      { label: "Representative", value: "채정란 and 1 other" },
+      { label: "Business Registration No.", value: "391-16-02375" },
+      {
+        label: "Business Address",
+        value: "298-25, Neungseo-ro, Sejongdaewang-myeon, Yeoju-si, Gyeonggi-do, Republic of Korea",
+      },
+      { label: "Contact", value: "+82 10-9718-2556" },
     ],
     copyright: "© 2026 SUDAMJAE YEOJU. All rights reserved.",
   },

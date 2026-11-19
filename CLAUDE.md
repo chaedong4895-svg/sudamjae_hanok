@@ -52,4 +52,6 @@ Confirmed with the user before building: admin login/dashboard, automated email 
 
 The operator confirmed these directly (not from the PRD draft) — they're now baked into the content/lib files above, not just docs:
 - High season, weekend definition (incl. holiday-eve rule), VAT-inclusive pricing, check-in/out wording, pet policy (not allowed), parking (on-site, ask ahead for multiple cars), room names (안채/사랑채/다실/다락/대청과 공용공간, English: Anchae/Sarangchae/Tea Room/Attic/Main Hall), and the full cancellation/refund schedule.
-- **Still open:** a public phone number (currently blank everywhere — `location.phone` is `""` and every component conditionally hides phone UI when it's falsy; don't hardcode a placeholder number), and the Airbnb/Naver listing URLs (buttons stay disabled with a "coming soon" label until provided). Contact email is `sudamjae_67@naver.com`.
+- Public contact phone is `010-9718-2556` (operator-confirmed 2026-11-19), set in `location.phone` (en: `+82 10-9718-2556`). Components still conditionally hide phone UI when it's falsy. Contact email is `sudamjae_67@naver.com`.
+- Business registration info (상호명/대표자/사업자등록번호/소재지/문의) lives in `footer.businessInfo` and renders above the copyright bar on every page.
+- **Still open:** the Airbnb/Naver listing URLs (buttons stay disabled with a "coming soon" label until provided).
